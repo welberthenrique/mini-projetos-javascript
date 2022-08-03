@@ -2,16 +2,21 @@ let numeroAtualWrapper = document.getElementById("currentNumber");
 let numeroAtual = 0;
 
 function increment() {
+  verificaNumero(numeroAtual);
   numeroAtual += 1;
   numeroAtualWrapper.innerHTML = numeroAtual;
 }
 
 function decrement() {
-  if (numeroAtual <= 0) {
-    alert("Contador não pode ser menor que 0");
-    numeroAtualWrapper.innerHTML = 0;
+  verificaNumero(numeroAtual);
+  numeroAtual -= 1;
+  numeroAtualWrapper.innerHTML = numeroAtual;
+}
+
+function verificaNumero(numero) {
+  if (numero < 0) {
+    numeroAtualWrapper.style.color = "RED";
   } else {
-    numeroAtual -= 1;
-    numeroAtualWrapper.innerHTML = numeroAtual;
+    numeroAtualWrapper.style.color = "black";
   }
 }
