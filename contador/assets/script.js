@@ -1,22 +1,22 @@
 let numeroAtualWrapper = document.getElementById("currentNumber");
 let numeroAtual = 0;
 
+function verificaNumero(numero) {
+  if (numero >= 0) {
+    numeroAtualWrapper.style.color = "black";
+  } else {
+    numeroAtualWrapper.style.color = "RED";
+  }
+}
+
 function increment() {
-  verificaNumero(numeroAtual);
   numeroAtual += 1;
   numeroAtualWrapper.innerHTML = numeroAtual;
+  verificaNumero(numeroAtual);
 }
 
 function decrement() {
-  verificaNumero(numeroAtual);
   numeroAtual -= 1;
   numeroAtualWrapper.innerHTML = numeroAtual;
-}
-
-function verificaNumero(numero) {
-  if (numero < 0) {
-    numeroAtualWrapper.style.color = "RED";
-  } else {
-    numeroAtualWrapper.style.color = "black";
-  }
+  verificaNumero(numeroAtual);
 }
